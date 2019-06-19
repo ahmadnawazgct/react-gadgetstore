@@ -16,6 +16,8 @@ import SingleProduct from "./components/pages/SingleProductPage";
 import Cart from "./components/pages/CartPage";
 import Default from "./components/pages/DefaultPage";
 
+
+
 function App() {
   return (
     <>
