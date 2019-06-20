@@ -1,5 +1,59 @@
 import React from "react";
+import { FaBars, FaCartPlus } from 'react-icons/fa';
+import { ProductConsumer } from './context';
+import styled from 'styled-components';
+import logo from './images/logo.svg';
 
 export default function Navbar() {
-  return <div>hello from Navbar</div>;
+  return (
+    <ProductConsumer>
+      {value =>{
+        const { cartItems, handleCart, handleSidebar } = value;
+        return (
+          <NavWrapper>
+            <div className="nav-center">
+              <FaBars className="nav-icon" onClick={handleSidebar} />
+              <img src={logo} alt="tech store logo" />
+              <div className="nav-cart">
+                <FaCartPlus  className="nav-icon" onClick={handleCart} />
+                <div className="cart-items">{cartItems}</div>
+              </div>
+            </div>
+          </NavWrapper>
+        );
+      }}
+    </ProductConsumer>
+  );
 }
+const NavWrapper = styled.nav`
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: var(--mainGrey);
+  border-bottom: 3px solid var(--primaryColor);
+  .nav-center {
+    display: flex; //to nav bar in one
+    align-items: center; //to center align items
+    justify-content: space-between; //to create space between item on full screen
+    max-width: 1370px; // maximum screen width
+    margin: 0 auto;
+  }
+  .nav-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .nav-cart {
+    position: relative;
+  }
+  .cart-items {
+    background:var(--primaryColor);
+    color:var(--mainWhite);
+    font-size:0.85rem;
+    position:absolute;
+    top:-8px;
+    right:-8px;
+    padding:0 5px;
+    border-radius:50%;
+  }
+`;
