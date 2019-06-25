@@ -1,9 +1,12 @@
 import React from "react";
-
+import Hero from '../Hero';
+import contactBcg from '../images/contactBcg.jpeg';
+import Contact from '../Contact';
 export default function ContactPage() {
   return (
     <>
-      <h1>Hello from Contact Page</h1>
+      <Hero img={contactBcg} />
+      <Contact />
     </>
   );
 }

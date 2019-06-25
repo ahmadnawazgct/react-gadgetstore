@@ -26,12 +26,13 @@ export default function Navbar() {
   );
 }
 const NavWrapper = styled.nav`
-  position: -webkit-sticky;
+  position:-webkit-sticky !important;
   position: sticky;
   width: 100%;
   padding: 1rem 1.5rem;
   background: var(--mainGrey);
   border-bottom: 3px solid var(--primaryColor);
+  z-index:1;
   .nav-center {
     display: flex; //to nav bar in one
     align-items: center; //to center align items
