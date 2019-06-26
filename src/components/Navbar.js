@@ -26,7 +26,7 @@ export default function Navbar() {
   );
 }
 const NavWrapper = styled.nav`
-  position:-webkit-sticky !important;
+  position:-webkit-sticky;
   position: sticky;
   width: 100%;
   padding: 1rem 1.5rem;
