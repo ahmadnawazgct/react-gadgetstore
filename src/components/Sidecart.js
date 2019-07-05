@@ -14,7 +14,8 @@ export default function Sidecart() {
                 return (
                   <li key={item.id} className="cart-item mb-4">
                     <img
-                      src={`../${item.image}`}
+                      //src={item.image}
+                      src={`/${item.image}`}
                       with="35"
                       height="45"
                       alt="item pic"

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { socialData } from '../context/socialData';
 import LinkData from './LinkData';
-import { items } from './productData';
-
+// import { items } from './productData';
+import client from './contentful';
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
@@ -30,7 +30,14 @@ class ProductProvider extends Component {
 
     }
     componentDidMount(){
-        this.setProdutcts(items);
+       // this.setProdutcts(item);
+    client
+      .getEntries({
+        content_type: "techStoreProductExample"
+      })
+      .then(response => this.setProdutcts(response.items))
+      .catch(console.error);
+
     }
     setProdutcts=(products)=>{
         let storeProducts = products.map(item=>{
